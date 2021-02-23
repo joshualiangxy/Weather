@@ -1,1 +1,17 @@
-<h2>{{ apiKey }}</h2>
+<div class="col pt-3" style="height: 19rem">
+  <div class="card h-100" (click)="toggleDisplay()">
+    <app-weather-card
+      [ngClass]="(showWeather) ? 'h-100' : 'h-0'"
+      [showWeather]="showWeather"
+      [noResultFound]="noResultFound"
+      [searchResult]="searchResult"
+    ></app-weather-card>
+    <app-search-form
+      [ngClass]="(!showWeather) ? 'h-100' : 'h-0'"
+      [(cityName)]="cityName"
+      [showWeather]="showWeather"
+      [onSubmitSearch]="onSubmitSearch"
+    ></app-search-form>
+  </div>
+</div>
+

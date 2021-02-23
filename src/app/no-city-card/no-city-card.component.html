@@ -1,0 +1,9 @@
+<div class="h-100 d-flex" *ngIf="!hasResult">
+  <h5 class="flex-fill justify-content-center align-self-center card-title">
+    {{
+      noResultFound
+        ? "Sorry, we could not find your city"
+        : "Click here to add a city"
+    }}
+  </h5>
+</div>

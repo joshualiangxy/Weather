@@ -1,0 +1,20 @@
+<div class="container h-100" *ngIf="hasResult">
+  <div class="row p-2">
+    <h5 class="card-title flex-fill">{{ cityName }}</h5>
+  </div>
+  <div class="row h-50">
+    <div class="col pl-4">
+      <fa-icon [icon]="weatherIcon" size="8x"></fa-icon>
+    </div>
+    <div class="col pl-0">
+      <h5 class="card-title">{{ temperatureString }}</h5>
+      <h5 class="card-title">{{ description }}</h5>
+    </div>
+  </div>
+  <div class="row float-right my-2 mx-0">
+    <button class="btn btn-primary" (click)="onClickEditButton()">
+      Edit City
+    </button>
+  </div>
+</div>
+

@@ -1,0 +1,19 @@
+<div
+  class="fade-in h-100"
+  *ngIf="showWeather"
+  [ngStyle]="{ 'cursor': (hasResult) ? 'default' : 'pointer' }"
+  (click)="toggleDisplay($event)"
+>
+  <app-city-weather-card
+    [cityName]="cityName"
+    [description]="description"
+    [temperature]="temperature"
+    [hasResult]="hasResult"
+    [weatherIcon]="weatherIcon"
+    [(showWeather)]="showWeather"
+  ></app-city-weather-card>
+  <app-no-city-card
+    [hasResult]="hasResult"
+    [noResultFound]="noResultFound"
+  ></app-no-city-card>
+</div>
