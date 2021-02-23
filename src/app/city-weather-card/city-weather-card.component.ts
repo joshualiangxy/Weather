@@ -10,9 +10,8 @@ export class CityWeatherCardComponent implements OnInit {
   @Input() description: string;
   @Input() temperature: number;
   @Input() hasResult: boolean;
-  @Input() showWeather: boolean;
   @Input() weatherIcon;
-  @Output() showWeatherChanges: EventEmitter<boolean>;
+  @Output() editPressedChanges = new EventEmitter<boolean>();
 
   private temperatureString: string;
 
@@ -25,8 +24,9 @@ export class CityWeatherCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onClickEditButton() {
-    this.showWeatherChanges.emit(false);
-    console.log('here');
+  onClickEditButton = (event: Event): void => {
+    event.preventDefault();
+    event.stopPropagation();
+    this.editPressedChanges.emit(true);
   }
 }

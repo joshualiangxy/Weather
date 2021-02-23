@@ -44,5 +44,9 @@ export class WeatherPanelComponent implements OnInit {
         else this.noResultFound = true;
       });
   }
+
+  onShowWeatherChange = (showWeather: boolean): void => {
+    this.showWeather = showWeather;
+  }
 }
 

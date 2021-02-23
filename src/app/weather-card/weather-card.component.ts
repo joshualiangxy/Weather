@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faCloud, faCloudMoon, faCloudMoonRain, faCloudRain, faCloudShowersHeavy, faCloudSun, faCloudSunRain, faMoon, faSnowflake, faSun, faWind } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -10,12 +10,14 @@ export class WeatherCardComponent implements OnInit {
   @Input() showWeather: boolean;
   @Input() noResultFound: boolean;
   @Input() searchResult;
+  @Output() showWeatherChanges = new EventEmitter<boolean>();
 
   public cityName: string;
   public description: string;
   public temperature: number;
   public hasResult: boolean;
   public weatherIcon;
+  public editPressed: boolean = false;
 
   constructor() { }
 
@@ -82,6 +84,11 @@ export class WeatherCardComponent implements OnInit {
 
   toggleDisplay = (event: Event) => {
     if (this.hasResult) event.stopPropagation();
+  }
+
+  onEditPressed = (editPressed: boolean) => {
+    if (editPressed) this.showWeatherChanges.emit(false);
+    editPressed = false;
   }
 }
 

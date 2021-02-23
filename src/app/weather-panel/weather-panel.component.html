@@ -5,6 +5,7 @@
       [showWeather]="showWeather"
       [noResultFound]="noResultFound"
       [searchResult]="searchResult"
+      (showWeatherChanges)="onShowWeatherChange($event)"
     ></app-weather-card>
     <app-search-form
       [ngClass]="(!showWeather) ? 'h-100' : 'h-0'"

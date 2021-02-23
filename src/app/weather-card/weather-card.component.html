@@ -10,7 +10,7 @@
     [temperature]="temperature"
     [hasResult]="hasResult"
     [weatherIcon]="weatherIcon"
-    [(showWeather)]="showWeather"
+    (editPressedChanges)="onEditPressed($event)"
   ></app-city-weather-card>
   <app-no-city-card
     [hasResult]="hasResult"
