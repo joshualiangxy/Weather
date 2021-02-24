@@ -42,7 +42,7 @@ export class WeatherPanelComponent implements OnInit {
 
     if (!submittedSearch) return Promise.resolve();
 
-    return await fetch('http://api.openweathermap.org/data/2.5/'
+    return await fetch('https://api.openweathermap.org/data/2.5/'
         + `weather?q=${submittedSearch}&appid=${this.apiKey}&units=metric`)
       .then(data => data.json())
       .then(weatherData => {
@@ -59,7 +59,7 @@ export class WeatherPanelComponent implements OnInit {
 
     if (!search) return Promise.resolve();
 
-    return await fetch('http://api.openweathermap.org/data/2.5/'
+    return await fetch('https://api.openweathermap.org/data/2.5/'
         + `weather?q=${search}&appid=${this.apiKey}&units=metric`)
       .then(data => data.json())
       .then(weatherData => {
