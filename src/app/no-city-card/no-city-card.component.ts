@@ -11,7 +11,6 @@ export class NoCityCardComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void { }
 }
+

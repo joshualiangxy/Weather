@@ -9,14 +9,15 @@ import { faCloud, faCloudMoon, faCloudMoonRain, faCloudRain, faCloudShowersHeavy
 export class WeatherCardComponent implements OnInit {
   @Input() showWeather: boolean;
   @Input() noResultFound: boolean;
-  @Input() searchResult;
+  @Input() searchResult: any;
+
   @Output() showWeatherChanges = new EventEmitter<boolean>();
 
   public cityName: string;
   public description: string;
   public temperature: number;
   public hasResult: boolean;
-  public weatherIcon;
+  public weatherIcon: any;
   public editPressed: boolean = false;
 
   constructor() { }
@@ -79,14 +80,13 @@ export class WeatherCardComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
-  toggleDisplay = (event: Event) => {
+  toggleDisplay = (event: Event): void => {
     if (this.hasResult) event.stopPropagation();
   }
 
-  onEditPressed = (editPressed: boolean) => {
+  onEditPressed = (editPressed: boolean): void => {
     if (editPressed) this.showWeatherChanges.emit(false);
     editPressed = false;
   }

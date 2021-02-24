@@ -21,7 +21,7 @@ export class SearchFormComponent implements OnInit {
     event.stopPropagation();
   }
 
-  onChangeTextInput = (event): void => {
+  onChangeTextInput = (event: any): void => {
     this.cityNameChange.emit(event.target.value);
   }
 

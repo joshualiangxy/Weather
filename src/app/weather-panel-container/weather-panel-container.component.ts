@@ -9,7 +9,6 @@ export class WeatherPanelContainerComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void { }
 }
+

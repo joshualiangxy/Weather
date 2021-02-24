@@ -11,6 +11,7 @@ import { SearchFormComponent } from './search-form/search-form.component';
 import { CityWeatherCardComponent } from './city-weather-card/city-weather-card.component';
 import { NoCityCardComponent } from './no-city-card/no-city-card.component';
 import { AutofocusDirective } from './autofocus.directive';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AutofocusDirective } from './autofocus.directive';
     SearchFormComponent,
     CityWeatherCardComponent,
     NoCityCardComponent,
-    AutofocusDirective
+    AutofocusDirective,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
