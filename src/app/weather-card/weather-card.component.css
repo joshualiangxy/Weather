@@ -1,6 +1,8 @@
 .fade-in {
   -webkit-animation: fade-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   animation: fade-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  color: #fff;
+  text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
 }
 
 /* ----------------------------------------------
@@ -30,5 +32,109 @@
   100% {
     opacity: 1;
   }
+}
+
+.clear-day-bg:after {
+  content: "";
+  background: url('../../assets/2248.jpg');
+  background-size: 250%;
+  opacity: 0.4;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.clear-night-bg:after {
+  content: "";
+  background: url('../../assets/4Z_2101.w017.n001.333A.p30.333.jpg');
+  background-size: 250%;
+  opacity: 0.7;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.cloudy-day-bg:after {
+  content: "";
+  background: url('../../assets/4122410.jpg');
+  background-size: 250%;
+  opacity: 0.7;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.cloudy-night-bg:after {
+  content: "";
+  background: url('../../assets/123Z_2012.w020.n001.932B.p15.932.jpg');
+  background-size: 250%;
+  opacity: 0.7;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.rain-bg:after {
+  content: "";
+  background: url('../../assets/10107.jpg');
+  background-size: 250%;
+  opacity: 0.7;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.storm-bg:after {
+  content: "";
+  background: url('../../assets/24833.jpg');
+  background-size: 250%;
+  opacity: 0.7;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.snow-bg:after {
+  content: "";
+  background: url('../../assets/130.jpg');
+  background-size: 250%;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.mist-bg:after {
+  content: "";
+  background: url('../../assets/27059.jpg');
+  background-size: 250%;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
 }
 

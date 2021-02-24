@@ -1,5 +1,5 @@
 <div class="col pt-3 weather-card">
-  <div class="card h-100" (click)="toggleDisplay()">
+  <div class="card h-100 inner-card" (click)="toggleDisplay()">
     <app-weather-card
       [ngClass]="(showWeather) ? 'h-100' : 'h-0'"
       [showWeather]="showWeather"

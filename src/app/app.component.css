@@ -6,7 +6,8 @@
 }
 
 body, html {
-  background: black;
+  background: url("../assets/1996.jpg") no-repeat;
+  background-size: cover;
   height: auto;
 }
 

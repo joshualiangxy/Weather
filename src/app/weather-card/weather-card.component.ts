@@ -20,6 +20,8 @@ export class WeatherCardComponent implements OnInit {
   public weatherIcon: any;
   public editPressed: boolean = false;
 
+  private iconString: string;
+
   constructor() { }
 
   ngOnChanges(): void {
@@ -28,7 +30,7 @@ export class WeatherCardComponent implements OnInit {
     this.weatherIcon = faSun;
 
     if (this.hasResult) {
-      const icon: string = this.searchResult.weather[0].icon;
+      this.iconString = this.searchResult.weather[0].icon;
 
       this.temperature = this.searchResult.main.temp;
       this.description = this.searchResult.weather[0].description
@@ -36,7 +38,7 @@ export class WeatherCardComponent implements OnInit {
         .map((word: string) => word[0].toUpperCase() + word.substr(1))
         .join(' ');
 
-      switch (icon) {
+      switch (this.iconString) {
         case '01n':
           this.weatherIcon = faMoon;
           break;
