@@ -23,3 +23,4 @@ describe('SearchFormComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
   selector: 'app-city-weather-card',
@@ -6,19 +7,21 @@ import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@
   styleUrls: ['./city-weather-card.component.css']
 })
 export class CityWeatherCardComponent implements OnInit {
-  @Input() cityName: string;
-  @Input() description: string;
-  @Input() temperature: number;
-  @Input() hasResult: boolean;
-  @Input() weatherIcon: any;
-  @Output() editPressedChanges = new EventEmitter<boolean>();
+  @Input() public hasResult: boolean;
+
+  @Input() private cityName: string;
+  @Input() private description: string;
+  @Input() private temperature: number;
+  @Input() private weatherIcon: IconDefinition;
+
+  @Output() private editPressedChange: EventEmitter<boolean>
+      = new EventEmitter<boolean>();
 
   private temperatureString: string;
-  private id: any;
 
-  constructor() { }
+  public constructor() { }
 
-  ngOnChanges(changes: SimpleChanges): void {
+  public ngOnChanges(changes: SimpleChanges): void {
     for (const propName in changes) {
       if (changes.hasOwnProperty(propName)) {
         let change = changes[propName];
@@ -33,11 +36,12 @@ export class CityWeatherCardComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void { }
+  public ngOnInit(): void { }
 
-  onClickEditButton = (event: Event): void => {
+  private onClickEditButton = (event: Event): void => {
     event.preventDefault();
     event.stopPropagation();
-    this.editPressedChanges.emit(true);
+    this.editPressedChange.emit(true);
   }
 }
+

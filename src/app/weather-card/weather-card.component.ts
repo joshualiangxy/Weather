@@ -1,5 +1,18 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { faCloud, faCloudMoon, faCloudMoonRain, faCloudRain, faCloudShowersHeavy, faCloudSun, faCloudSunRain, faMoon, faSnowflake, faSun, faWind } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCloud,
+  faCloudMoon,
+  faCloudMoonRain,
+  faCloudRain,
+  faCloudShowersHeavy,
+  faCloudSun,
+  faCloudSunRain,
+  faMoon,
+  faSnowflake,
+  faSun,
+  faWind,
+  IconDefinition
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-weather-card',
@@ -7,24 +20,27 @@ import { faCloud, faCloudMoon, faCloudMoonRain, faCloudRain, faCloudShowersHeavy
   styleUrls: ['./weather-card.component.css']
 })
 export class WeatherCardComponent implements OnInit {
-  @Input() showWeather: boolean;
-  @Input() noResultFound: boolean;
-  @Input() searchResult: any;
+  @Input() public showWeather: boolean;
 
-  @Output() showWeatherChanges = new EventEmitter<boolean>();
+  @Input() private noResultFound: boolean;
+  @Input() private searchResult: any;
 
-  public cityName: string;
-  public description: string;
-  public temperature: number;
-  public hasResult: boolean;
-  public weatherIcon: any;
-  public editPressed: boolean = false;
+  @Output() private showWeatherChange: EventEmitter<boolean>
+      = new EventEmitter<boolean>();
 
+  private cityName: string;
+  private description: string;
   private iconString: string;
+  private temperature: number;
+  private hasResult: boolean;
+  private editPressed: boolean = false;
+  private weatherIcon: IconDefinition;
 
-  constructor() { }
+  public constructor() { }
 
-  ngOnChanges(): void {
+  public ngOnInit(): void { }
+
+  public ngOnChanges(): void {
     this.cityName = this.searchResult.name;
     this.hasResult = !!this.cityName;
     this.weatherIcon = faSun;
@@ -82,14 +98,12 @@ export class WeatherCardComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void { }
-
-  toggleDisplay = (event: Event): void => {
+  private toggleDisplay = (event: Event): void => {
     if (this.hasResult) event.stopPropagation();
   }
 
-  onEditPressed = (editPressed: boolean): void => {
-    if (editPressed) this.showWeatherChanges.emit(false);
+  private onEditPressed = (editPressed: boolean): void => {
+    if (editPressed) this.showWeatherChange.emit(false);
     editPressed = false;
   }
 }

@@ -6,11 +6,12 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./no-city-card.component.css']
 })
 export class NoCityCardComponent implements OnInit {
-  @Input() hasResult: boolean;
-  @Input() noResultFound: boolean;
+  @Input() public hasResult: boolean;
 
-  constructor() { }
+  @Input() private noResultFound: boolean;
 
-  ngOnInit(): void { }
+  public constructor() { }
+
+  public ngOnInit(): void { }
 }
 

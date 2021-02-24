@@ -23,3 +23,4 @@ describe('NoCityCardComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

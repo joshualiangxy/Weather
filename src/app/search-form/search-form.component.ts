@@ -6,26 +6,27 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./search-form.component.css']
 })
 export class SearchFormComponent implements OnInit {
-  @Input() showWeather: boolean;
-  @Input() cityName: string;
-  @Input() onSubmitSearch: (event: Event) => Promise<object>;
+  @Input() public showWeather: boolean;
 
-  @Output() cityNameChange = new EventEmitter<string>();
+  @Input() private cityName: string;
+  @Input() private onSubmitSearch: (event: Event) => Promise<object>;
 
-  constructor() { }
+  @Output() private cityNameChange: EventEmitter<string>
+      = new EventEmitter<string>();
 
-  ngOnInit(): void {
-  }
+  public constructor() { }
 
-  onClickTextInput = (event: Event): void => {
+  public ngOnInit(): void { }
+
+  private onClickTextInput = (event: Event): void => {
     event.stopPropagation();
   }
 
-  onChangeTextInput = (event: any): void => {
-    this.cityNameChange.emit(event.target.value);
+  private onChangeTextInput = (event: Event): void => {
+    this.cityNameChange.emit((event.target as HTMLInputElement).value);
   }
 
-  onClickButton = (event: Event): void => {
+  private onClickButton = (event: Event): void => {
     this.onSubmitSearch(event)
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { environment } from '../../environments/environment.prod'
 
 @Component({
@@ -11,28 +11,31 @@ export class WeatherPanelComponent implements OnInit {
   public showWeather: boolean = true;
   public noResultFound: boolean = false;
   public searchResult: any = {};
+
   private apiKey: string = environment.API_KEY;
-  private id: any;
+  private id: ReturnType<typeof setInterval>;
 
-  constructor() { }
+  public constructor() { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
+    const thirtySeconds: number = 30000;
+
     setTimeout(() => {
       this.id = setInterval(() => {
         this.refresh();
-      }, 30000);
-    }, 30000 - (Date.now() % 30000));
+      }, thirtySeconds);
+    }, thirtySeconds - (Date.now() % thirtySeconds));
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     if (this.id) clearInterval(this.id);
   }
 
-  toggleDisplay = (): void => {
+  public toggleDisplay = (): void => {
     this.showWeather = !this.showWeather;
   }
 
-  onSubmitSearch = async (event: Event): Promise<void> => {
+  public onSubmitSearch = async (event: Event): Promise<void> => {
     event.preventDefault();
     event.stopPropagation();
 
@@ -54,7 +57,7 @@ export class WeatherPanelComponent implements OnInit {
       });
   }
 
-  refresh = async (): Promise<void> => {
+  private refresh = async (): Promise<void> => {
     const search = this.searchResult.name;
 
     if (!search) return Promise.resolve();
@@ -65,10 +68,6 @@ export class WeatherPanelComponent implements OnInit {
       .then(weatherData => {
         this.searchResult = weatherData;
       });
-  }
-
-  onShowWeatherChange = (showWeather: boolean): void => {
-    this.showWeather = showWeather;
   }
 }
 

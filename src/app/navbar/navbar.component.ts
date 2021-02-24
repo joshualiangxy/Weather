@@ -7,20 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   public time: string;
-  private id: any;
 
-  constructor() { }
+  private id: ReturnType<typeof setInterval>;
 
-  ngOnInit(): void {
+  public constructor() { }
+
+  public ngOnInit(): void {
     this.time = new Date().toTimeString();
+    const thirtySeconds: number = 30000;
+
     setTimeout(() => {
       this.id = setInterval(() => {
         this.time = new Date().toTimeString();
-      }, 30000);
-    }, 30000 - (Date.now() % 30000));
+      }, thirtySeconds);
+    }, thirtySeconds - (Date.now() % thirtySeconds));
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     if (this.id) clearInterval(this.id);
   }
 }
+

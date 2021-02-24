@@ -23,3 +23,4 @@ describe('WeatherCardComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

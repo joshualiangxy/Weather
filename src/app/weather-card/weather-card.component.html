@@ -5,7 +5,8 @@
     'clear-night-bg': iconString == '01n',
     'cloudy-day-bg': iconString == '02d' || iconString == '03d' || iconString == '04d',
     'cloudy-night-bg': iconString == '02n' || iconString == '03n' || iconString == '04n',
-    'rain-bg': iconString == '09d' || iconString == '09n' || iconString == '10d' || iconString == '10n',
+    'rain-bg': iconString == '09d' || iconString == '09n'
+        || iconString == '10d' || iconString == '10n',
     'storm-bg': iconString == '11d' || iconString == '11n',
     'snow-bg': iconString == '13d' || iconString == '13n',
     'mist-bg': iconString == '50d' || iconString == '50n'
@@ -20,10 +21,11 @@
     [temperature]="temperature"
     [hasResult]="hasResult"
     [weatherIcon]="weatherIcon"
-    (editPressedChanges)="onEditPressed($event)"
+    (editPressedChange)="onEditPressed($event)"
   ></app-city-weather-card>
   <app-no-city-card
     [hasResult]="hasResult"
     [noResultFound]="noResultFound"
   ></app-no-city-card>
 </div>
+
