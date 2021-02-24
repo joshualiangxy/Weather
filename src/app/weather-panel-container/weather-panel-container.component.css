@@ -7,3 +7,19 @@
   height: auto;
 }
 
+.root::after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  z-index: -1;
+  content: url('../../assets/2248.jpg');
+  content: url('../../assets/4Z_2101.w017.n001.333A.p30.333.jpg');
+  content: url('../../assets/4122410.jpg');
+  content: url('../../assets/123Z_2012.w020.n001.932B.p15.932.jpg');
+  content: url('../../assets/10107.jpg');
+  content: url('../../assets/24833.jpg');
+  content: url('../../assets/130.jpg');
+  content: url('../../assets/27059.jpg');
+}
+
