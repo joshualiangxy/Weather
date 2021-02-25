@@ -34,7 +34,7 @@
           },
           "configurations": {
             "production": {
-              "deployUrl": "/Weather",
+              "deployUrl": "Weather/",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
