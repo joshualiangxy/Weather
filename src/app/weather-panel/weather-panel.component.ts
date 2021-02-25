@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from '../../environments/environment.prod'
+import {
+  environment as devEnvironment
+} from '../../environments/environment';
+import {
+  environment as prodEnvironment
+} from '../../environments/environment.prod';
 
 @Component({
   selector: 'app-weather-panel',
@@ -12,7 +17,9 @@ export class WeatherPanelComponent implements OnInit {
   public noResultFound: boolean = false;
   public searchResult: any = {};
 
-  private apiKey: string = environment.API_KEY;
+  private apiKey: string = prodEnvironment.production
+    ? prodEnvironment.API_KEY
+    : devEnvironment.API_KEY;
   private id: ReturnType<typeof setInterval>;
 
   public constructor() { }
